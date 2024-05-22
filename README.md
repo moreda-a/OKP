@@ -1,9 +1,8 @@
 
-# My Paper Title
+# Competitive Algorithms for Online Knapsack with Succinct Predictions
 
 This repository contains the official implementation of [Competitive Algorithms for Online Knapsack with Succinct Predictions].
 
-> 📋 *Optional: Include a graphic explaining your approach/main result, BibTeX entry, link to demos, blog posts, and tutorials.*
 
 ## Requirements
 
