@@ -1,62 +1,103 @@
->📋  A template README.md for code accompanying a Machine Learning paper
 
 # My Paper Title
 
-This repository is the official implementation of [My Paper Title](https://arxiv.org/abs/2030.12345). 
+This repository contains the official implementation of [Competitive Algorithms for Online Knapsack with Succinct Predictions].
 
->📋  Optional: include a graphic explaining your approach/main result, bibtex entry, link to demos, blog posts and tutorials
+> 📋 *Optional: Include a graphic explaining your approach/main result, BibTeX entry, link to demos, blog posts, and tutorials.*
 
 ## Requirements
 
-To install requirements:
+- Any C++ compiler
+- Any Python compiler
+- An application to unzip the dataset
 
-```setup
-pip install -r requirements.txt
-```
+## Pre-Evaluation
 
->📋  Describe how to set up the environment, e.g. pip/conda/docker commands, download datasets, etc...
-
-## Training
-
-To train the model(s) in the paper, run this command:
-
-```train
-python train.py --input-data <path_to_data> --alpha 10 --beta 20
-```
-
->📋  Describe how to train the models, with example commands on how to train the models in your paper, including the full training procedure and appropriate hyperparameters.
+You need to run `bit-2017-partition.py` and `bit-2018-partition.py` in the `Fig4` folder or have all `con_numbers_i.txt` files available.
 
 ## Evaluation
 
-To evaluate my model on ImageNet, run:
+Each folder contains code that can be run to generate the figures described in the paper's main body or appendix. You can modify parameters in the `inith()` function, as shown below:
 
-```eval
-python eval.py --model-file mymodel.pth --benchmark imagenet
-```
+```python
+def inith():
+    alg_list1 = [
+        Algorithms("PP-a", ppa_a, [], "simple"),
+        Algorithms("CONV-PP-A", conv_ppa_a, [], "simple2"),
+        Algorithms("SENTINEL", im, [], "input"),
+        Algorithms("ZCL", noadvice, [], "simple"),
+    ]
+    info_list = [
+        Setting(
+            L=1,
+            U=100,
+            delta=0,
+            n=10000,
+            capacity=1,
+            num_runs=10,
+            name="δ=0",
+            alg_list=copy.deepcopy(alg_list1),
+        ),
+        Setting(
+            L=1,
+            U=100,
+            delta=0.5,
+            n=10000,
+            capacity=1,
+            num_runs=10,
+            name="δ=0.5",
+            alg_list=copy.deepcopy(alg_list1),
+        ),
+        Setting(
+            L=1,
+            U=100,
+            delta=1,
+            n=10000,
+            capacity=1,
+            num_runs=10,
+            name="δ=1",
+            alg_list=copy.deepcopy(alg_list1),
+        ),
+        Setting(
+            L=1,
+            U=100,
+            delta=1.5,
+            n=10000,
+            capacity=1,
+            num_runs=10,
+            name="δ=1.5",
+            alg_list=copy.deepcopy(alg_list1),
+        ),
+        Setting(
+            L=1,
+            U=100,
+            delta=2,
+            n=10000,
+            capacity=1,
+            num_runs=10,
+            name="δ=2",
+            alg_list=copy.deepcopy(alg_list1),
+        ),
+    ]
+    return info_list
+'''
+This function specifies running four algorithms in five different settings. Each setting is indicated by the lowest value, highest value, delta factor, number of items, capacity, number of runs, and a name.
 
->📋  Describe how to evaluate the trained models on benchmarks reported in the paper, give commands that produce the results (section below).
+To change the input, you can use different initialization functions specified for each figure.
 
-## Pre-trained Models
+The latest version of the code is in `Fig4/code`.
 
-You can download pretrained models here:
+### Running on Bitcoin Data
 
-- [My awesome model](https://drive.google.com/mymodel.pth) trained on ImageNet using parameters x,y,z. 
+1. Run `bit-year-partition` on zipped files.
+2. Run `ravi.cpp`, which implements the Sentinel algorithm.
+3. Run the code.
 
->📋  Give a link to where/how the pretrained models can be downloaded and how they were trained (if applicable).  Alternatively you can have an additional column in your results table with a link to the models.
+### For Figure 3
+
+1. Run `ravi.cpp`.
+2. Run `code.py` to get results on Sentinel synthetic data.
 
 ## Results
 
-Our model achieves the following performance on :
-
-### [Image Classification on ImageNet](https://paperswithcode.com/sota/image-classification-on-imagenet)
-
-| Model name         | Top 1 Accuracy  | Top 5 Accuracy |
-| ------------------ |---------------- | -------------- |
-| My awesome model   |     85%         |      95%       |
-
->📋  Include a table of results from your paper, and link back to the leaderboard for clarity and context. If your main result is a figure, include that figure and link to the command or notebook to reproduce it. 
-
-
-## Contributing
-
->📋  Pick a licence and describe how to contribute to your code repository. 
+Our algorithm achieves a high competitive ratio on different synthetic datasets as well as the Bitcoin dataset.
