@@ -19,7 +19,7 @@ You need to run `bit-2017-partition.py` and `bit-2018-partition.py` in the `Fig4
 
 Each folder contains code that can be run to generate the figures described in the paper's main body or appendix. You can modify parameters in the `inith()` function, as shown below:
 
-```python
+```train
 def inith():
     alg_list1 = [
         Algorithms("PP-a", ppa_a, [], "simple"),
@@ -80,7 +80,7 @@ def inith():
         ),
     ]
     return info_list
-'''
+```
 This function specifies running four algorithms in five different settings. Each setting is indicated by the lowest value, highest value, delta factor, number of items, capacity, number of runs, and a name.
 
 To change the input, you can use different initialization functions specified for each figure.
