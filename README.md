@@ -1,7 +1,7 @@
 
-# Competitive Algorithms for Online Knapsack with Succinct Predictions
+# Near-Optimal Consistency-Robustness Trade-Offs for Learning-Augmented Online Knapsack Problems
 
-This repository contains the official implementation of [Competitive Algorithms for Online Knapsack with Succinct Predictions].
+This repository contains the official implementation of [Near-Optimal Consistency-Robustness Trade-Offs for Learning-Augmented Online Knapsack Problems].
 
 
 ## Requirements
@@ -13,6 +13,7 @@ This repository contains the official implementation of [Competitive Algorithms 
 ## Pre-Evaluation
 
 You need to run `bit-2017-partition.py` and `bit-2018-partition.py` in the `Fig4` folder or have all `con_numbers_i.txt` files available.
+You need to run `firstRowValues.m` and `genRaviInputs.py` int the `Fig5` folder or have all `con_numbers_i.txt` files available.
 
 ## Evaluation
 
@@ -84,14 +85,19 @@ This function specifies running four algorithms in five different settings. Each
 
 To change the input, you can use different initialization functions specified for each figure.
 
-The latest version of the code is in `Fig4/code`.
+The latest version of the code is in `Fig5/code`.
 
-### Running on Bitcoin Data
+### Running on Bitcoin Data (Figure 4)
 
 1. Run `bit-year-partition` on zipped files.
 2. Run `ravi.cpp`, which implements the Sentinel algorithm.
-3. Run the code.
+3. Run the `code.py`.
+   
+### Running on Google Traces Data (Figure 5)
 
+1. Run `ravi.cpp`, which implements the Sentinel algorithm.
+3. Run the `code.py`.
+   
 ### For Figure 3
 
 1. Run `ravi.cpp`.
@@ -99,4 +105,4 @@ The latest version of the code is in `Fig4/code`.
 
 ## Results
 
-Our algorithm achieves a high competitive ratio on different synthetic datasets as well as the Bitcoin dataset.
+Our algorithm achieves a high competitive ratio on different synthetic datasets as well as the Bitcoin dataset and Google Traces dataset.
