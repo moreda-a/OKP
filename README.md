@@ -85,15 +85,15 @@ This function specifies running four algorithms in five different settings. Each
 
 To change the input, you can use different initialization functions specified for each figure.
 
-The latest version of the code is in `A4/code`.
+The latest version of the code is in `A4/code`or `5/code`.
 
-### Running on Bitcoin Data (Figure A3)
+### Running on Bitcoin Data (Figure A3,or 4)
 
 1. Run `bit-year-partition` on zipped files.
 2. Run `ravi.cpp`, which implements the Sentinel algorithm.
 3. Run the `code.py`.
    
-### Running on Google Traces Data (Figure A4)
+### Running on Google Traces Data (Figure A4,or 5)
 
 1. Run `ravi.cpp`, which implements the Sentinel algorithm.
 3. Run the `code.py`.
